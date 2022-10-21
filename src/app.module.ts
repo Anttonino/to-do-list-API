@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import { List } from './list/entities/list.entity';
+import { ListModule } from './list/list.module';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot ({
@@ -10,9 +13,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'list_db',
-      entities: [],
+      entities: [List],
       synchronize: true
     }),
+    ListModule
   ],
   controllers: [],
   providers: [],
